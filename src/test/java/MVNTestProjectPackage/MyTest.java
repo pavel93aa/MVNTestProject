@@ -1,15 +1,15 @@
 package MVNTestProjectPackage;
 
+import org.junit.Assert;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
-public class MyTest {
+public class MyTest extends ChromeDriverSettings {
+
     @Test
     public void Test1() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Pavel\\SeleniumDrivers\\chromedriver.exe");
-        WebDriver driver = new ChromeDriver();
         driver.get("https://www.toolsqa.com/");
-        //driver.quit();
+        String title = driver.getTitle();
+        System.out.println(title);
+        Assert.assertTrue(title.equals("QA Automation Tools Tutorial"));
     }
 }
