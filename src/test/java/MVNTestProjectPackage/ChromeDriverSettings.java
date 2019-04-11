@@ -15,8 +15,10 @@ public class ChromeDriverSettings {
     }
 
     @After
-    public void close() {
-        driver.quit();
-        System.out.println("Test close");
+    public void cleanUp() {
+        if (driver != null) {
+            driver.quit();
+            System.out.println("Test cleanUp");
+        }
     }
 }
