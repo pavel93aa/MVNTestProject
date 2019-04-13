@@ -16,12 +16,11 @@ public class MainPage extends ChromeDriverSettings {
     @FindBy(xpath = "//*[@id=\"text\"]")
     private WebElement TEXT_FIELD_ON_THE_MAIN_PAGE;
 
-    @FindBy(className = "search2__button")
+    @FindBy(xpath = "//div[contains(@class, 'search2__button')]")
     private WebElement SEARCH_BUTTON;
 
-    //Не находит кнопку по xpath
-    @FindBy(xpath = "/html/body/div[1]/div[3]/div[2]/div[2]/div/fdpprt/fdpprt/dhtaq/div/div[2]/div/div[2]/div/form/div[2]")
-    private WebElement SEARCH_BUTTON1;
+    @FindBy(xpath = "//div/a[contains(@data-id, 'images')]")
+    private WebElement LINK_IMAGES;
 
     //Открыть главную страницу
     public void openMainPage() {
@@ -39,6 +38,11 @@ public class MainPage extends ChromeDriverSettings {
     //Левый клик мыши на кнопке поиска
     public void pressSearch() {
         SEARCH_BUTTON.click();
+    }
+
+    //Левый клик мыши на ссылке картинки
+    public void pressLinkImages() {
+        LINK_IMAGES.click();
     }
 
     //Нажать Enter

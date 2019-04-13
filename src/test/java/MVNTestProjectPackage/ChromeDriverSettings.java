@@ -9,8 +9,9 @@ public class ChromeDriverSettings {
 
     @Before
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Pavel\\SeleniumDrivers\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Pavel\\IdeaProjects\\MVNTestProject\\chromedriver.exe");
         driver = new ChromeDriver();
+        driver.manage().window().maximize();
         System.out.println("Test setUp");
     }
 
