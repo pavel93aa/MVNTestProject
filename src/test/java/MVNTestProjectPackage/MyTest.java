@@ -36,7 +36,7 @@ public class MyTest extends ChromeDriverSettings {
         Thread.sleep(3000);
     }
 
-    @Test //Переход по ссылке
+    @Test //Переход по ссылке на главной странице
     public void Test3() throws InterruptedException {
 
         MainPage mainPage = new MainPage(driver);
@@ -45,6 +45,25 @@ public class MyTest extends ChromeDriverSettings {
         mainPage.openMainPage();
 
         System.out.println("Шаг 2: Перейти по ссылке");
+        mainPage.pressLinkImagesOnTheMainPage();
+        Thread.sleep(3000);
+    }
+
+    @Test //Переход по ссылке после поиска
+    public void Test4() throws InterruptedException {
+
+        MainPage mainPage = new MainPage(driver);
+
+        System.out.println("Шаг 1: Открыть сайт");
+        mainPage.openMainPage();
+
+        System.out.println("Шаг 2: Ввести текст");
+        mainPage.textInput("selenium");
+
+        System.out.println("Шаг 3: Нажать на поиск");
+        mainPage.pressSearch();
+
+        System.out.println("Шаг 4: Перейти по ссылке");
         mainPage.pressLinkImages();
         Thread.sleep(3000);
     }

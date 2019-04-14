@@ -20,6 +20,9 @@ public class MainPage extends ChromeDriverSettings {
     private WebElement SEARCH_BUTTON;
 
     @FindBy(xpath = "//div/a[contains(@data-id, 'images')]")
+    private WebElement LINK_IMAGES_ON_THE_MAIN_PAGE;
+
+    @FindBy(xpath = "/html/body/div[2]/div/div/div[2]/div[1]/a")
     private WebElement LINK_IMAGES;
 
     //Открыть главную страницу
@@ -38,6 +41,11 @@ public class MainPage extends ChromeDriverSettings {
     //Левый клик мыши на кнопке поиска
     public void pressSearch() {
         SEARCH_BUTTON.click();
+    }
+
+    //Левый клик мыши на ссылке картинки на главной странице
+    public void pressLinkImagesOnTheMainPage() {
+        LINK_IMAGES_ON_THE_MAIN_PAGE.click();
     }
 
     //Левый клик мыши на ссылке картинки
