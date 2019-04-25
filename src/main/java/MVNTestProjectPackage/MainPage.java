@@ -25,6 +25,23 @@ public class MainPage extends BasePageFactory {
     @FindBy(xpath = "//input[contains(@id, 'glpricefrom')]")
     private WebElement PRICE_FROM_TEXT_FIELD;
 
+    @FindBy(xpath = "/html/body/div[1]/div[5]/div[2]/div[1]/div[1]/div/div[1]/div[1]/div[3]/div[2]/a")
+    private WebElement FIRST_LINK;
+
+    @FindBy(xpath = "//div[contains(@data-id, 'model-1732181846')]/a")
+    private WebElement APPLE_NAME_OUTER;
+
+    @FindBy(xpath = "//*[contains(@class, 'title title_size_28 title_bold_yes')]")
+    private WebElement APPLE_NAME_INNER;
+
+    public WebElement getAPPLE_NAME_OUTER() {
+        return APPLE_NAME_OUTER;
+    }
+
+    public WebElement getAPPLE_NAME_INNER() {
+        return APPLE_NAME_INNER;
+    }
+
     public void openMainPage() {
         getDriver().get("https://yandex.ru/");
         System.out.println(getDriver().getCurrentUrl());
@@ -59,5 +76,10 @@ public class MainPage extends BasePageFactory {
         PRICE_FROM_TEXT_FIELD.clear();
         PRICE_FROM_TEXT_FIELD.sendKeys(text);
         System.out.println("Очистка и ввод текста в текстовое поле \"Цена от\"");
+    }
+
+    public void clickFirstLink() {
+        FIRST_LINK.click();
+        System.out.println("Левый клик мыши на первой ссылке");
     }
 }

@@ -1,9 +1,9 @@
 package MVNTestProjectPackage;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -28,26 +28,27 @@ public class MyTest {
     }
 
     @Test
-    public void yandexTest() throws InterruptedException {
+    public void yandexAppleTest() throws InterruptedException {
         MainPage mainPage = new MainPage(driver);
         //Зайти на yandex.ru
         mainPage.openMainPage();
         //Перейти в маркет, подраздел электроника, мобильные телефоны
         mainPage.clickMarket();
-        Thread.sleep(3000);
         mainPage.clickElektronika();
-        Thread.sleep(3000);
         mainPage.clickMobilnyeTelefony();
-        Thread.sleep(3000);
         //Сделать фильтрацию по телефонам марки Apple
         mainPage.clickAppleCheckbox();
-        Thread.sleep(3000);
         //Сделать фильтр по цене от 60 000 рублей
         mainPage.selectTextField();
         mainPage.textInput("60000");
         Thread.sleep(3000);
         //Перейти по ссылке первого телефона в его описание
-        driver.findElement(By.xpath("//a[text()= 'Смартфон Apple iPhone X 64GB']")).click();
-        Thread.sleep(3000);
+        String textOuter = mainPage.getAPPLE_NAME_OUTER().getAttribute("title");
+        mainPage.clickFirstLink();
+        String textInner = mainPage.getAPPLE_NAME_INNER().getText();
+        //Сравнить отображаемое имя телефона
+        Assert.assertEquals(textOuter, textInner);
+        System.out.println(textOuter);
+        System.out.println(textInner);
     }
 }
