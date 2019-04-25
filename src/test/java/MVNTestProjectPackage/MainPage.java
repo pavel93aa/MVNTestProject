@@ -1,6 +1,5 @@
 package MVNTestProjectPackage;
 
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
@@ -13,48 +12,54 @@ public class MainPage extends ChromeDriverSettings {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath = "//*[@id=\"text\"]")
-    private WebElement TEXT_FIELD_ON_THE_MAIN_PAGE;
+    @FindBy(xpath = "//a[contains(@data-id, 'market')]")
+    private WebElement MARKET_LINK;
 
-    @FindBy(xpath = "//div[contains(@class, 'search2__button')]")
-    private WebElement SEARCH_BUTTON;
+    @FindBy(xpath = "//a[contains(@href, '/catalog--elektronika/54440')]")
+    private WebElement ELEKTRONIKA_LINK;
 
-    @FindBy(xpath = "//div/a[contains(@data-id, 'images')]")
-    private WebElement LINK_IMAGES_ON_THE_MAIN_PAGE;
+    @FindBy(xpath = "//a[contains(@href, '/catalog--mobilnye-telefony/54726/list?catId=91491&hid=91491')]")
+    private WebElement MOBILNYE_TELEFONY_LINK;
 
-    @FindBy(xpath = "/html/body/div[2]/div/div/div[2]/div[1]/a")
-    private WebElement LINK_IMAGES;
+    @FindBy(xpath = "//a[contains(@href, '/catalog/54726/list?hid=91491&glfilter=7893318%3A153043')]")
+    private WebElement APPLE_CHECKBOX_LINK;
 
-    //Открыть главную страницу
+    @FindBy(xpath = "//input[contains(@id, 'glpricefrom')]")
+    private WebElement PRICE_FROM_TEXT_FIELD;
+
     public void openMainPage() {
         driver.get("https://yandex.ru/");
         System.out.println(driver.getCurrentUrl());
     }
 
-    //Ввести текст в текстовое поле
+    public void clickMarket() {
+        MARKET_LINK.click();
+        System.out.println("Левый клик мыши на ссылке \"Маркет\"");
+    }
+
+    public void clickElektronika() {
+        ELEKTRONIKA_LINK.click();
+        System.out.println("Левый клик мыши на ссылке \"Электроника\"");
+    }
+
+    public void clickMobilnyeTelefony() {
+        MOBILNYE_TELEFONY_LINK.click();
+        System.out.println("Левый клик мыши на ссылке \"Мобильные телефоны\"");
+    }
+
+    public void clickAppleCheckbox() {
+        APPLE_CHECKBOX_LINK.click();
+        System.out.println("Левый клик мыши на чекбоксе \"Apple\"");
+    }
+
+    public void selectTextField() {
+        PRICE_FROM_TEXT_FIELD.click();
+        System.out.println("Левый клик мыши на текстовом поле \"Цена от\"");
+    }
+
     public void textInput(String text) {
-        TEXT_FIELD_ON_THE_MAIN_PAGE.click();
-        TEXT_FIELD_ON_THE_MAIN_PAGE.clear();
-        TEXT_FIELD_ON_THE_MAIN_PAGE.sendKeys(text);
-    }
-
-    //Левый клик мыши на кнопке поиска
-    public void pressSearch() {
-        SEARCH_BUTTON.click();
-    }
-
-    //Левый клик мыши на ссылке картинки на главной странице
-    public void pressLinkImagesOnTheMainPage() {
-        LINK_IMAGES_ON_THE_MAIN_PAGE.click();
-    }
-
-    //Левый клик мыши на ссылке картинки
-    public void pressLinkImages() {
-        LINK_IMAGES.click();
-    }
-
-    //Нажать Enter
-    public void pressEnter() {
-        TEXT_FIELD_ON_THE_MAIN_PAGE.sendKeys(Keys.RETURN);
+        PRICE_FROM_TEXT_FIELD.clear();
+        PRICE_FROM_TEXT_FIELD.sendKeys(text);
+        System.out.println("Очистка и ввод текста в текстовое поле \"Цена от\"");
     }
 }

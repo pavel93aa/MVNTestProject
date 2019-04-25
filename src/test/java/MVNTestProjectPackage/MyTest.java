@@ -1,70 +1,31 @@
 package MVNTestProjectPackage;
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 
 public class MyTest extends ChromeDriverSettings {
 
-    @Test //Проверка заголовка страницы
-    public void Test1() throws InterruptedException {
-
+    @Test
+    public void yandexTest() throws InterruptedException {
         MainPage mainPage = new MainPage(driver);
-
-        System.out.println("Шаг 1: Открыть сайт");
+        //Зайти на yandex.ru
         mainPage.openMainPage();
-
-        System.out.println("Шаг 2: Проверить заголовок");
-        String title = driver.getTitle();
-        System.out.println(title);
-        Assert.assertTrue(title.equals("Яндекс"));
-    }
-
-    @Test //Проверка поиска информации
-    public void Test2() throws InterruptedException {
-
-        MainPage mainPage = new MainPage(driver);
-
-        System.out.println("Шаг 1: Открыть сайт");
-        mainPage.openMainPage();
-
-        System.out.println("Шаг 2: Ввести текст");
-        mainPage.textInput("selenium");
-
-        System.out.println("Шаг 3: Нажать на поиск");
-        mainPage.pressSearch();
+        //Перейти в маркет, подраздел электроника, мобильные телефоны
+        mainPage.clickMarket();
         Thread.sleep(3000);
-    }
-
-    @Test //Переход по ссылке на главной странице
-    public void Test3() throws InterruptedException {
-
-        MainPage mainPage = new MainPage(driver);
-
-        System.out.println("Шаг 1: Открыть сайт");
-        mainPage.openMainPage();
-
-        System.out.println("Шаг 2: Перейти по ссылке");
-        mainPage.pressLinkImagesOnTheMainPage();
+        mainPage.clickElektronika();
         Thread.sleep(3000);
-    }
-
-    @Test //Переход по ссылке после поиска
-    public void Test4() throws InterruptedException {
-
-        MainPage mainPage = new MainPage(driver);
-
-        System.out.println("Шаг 1: Открыть сайт");
-        mainPage.openMainPage();
-
-        System.out.println("Шаг 2: Ввести текст");
-        mainPage.textInput("selenium");
-
-        System.out.println("Шаг 3: Нажать на поиск");
-        mainPage.pressSearch();
-
-        System.out.println("Шаг 4: Перейти по ссылке");
-        mainPage.pressLinkImages();
+        mainPage.clickMobilnyeTelefony();
+        Thread.sleep(3000);
+        //Сделать фильтрацию по телефонам марки Apple
+        mainPage.clickAppleCheckbox();
+        Thread.sleep(3000);
+        //Сделать фильтр по цене от 60 000 рублей
+        mainPage.selectTextField();
+        mainPage.textInput("60000");
+        Thread.sleep(3000);
+        //Перейти по ссылке первого телефона в его описание
+        driver.findElement(By.xpath("//a[text()= 'Смартфон Apple iPhone X 64GB']")).click();
         Thread.sleep(3000);
     }
 }
