@@ -1,15 +1,13 @@
 package MVNTestProjectPackage;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class MainPage extends ChromeDriverSettings {
+public class MainPage extends BasePageFactory {
 
-    MainPage(ChromeDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+    public MainPage(WebDriver driver) {
+        super(driver);
     }
 
     @FindBy(xpath = "//a[contains(@data-id, 'market')]")
@@ -28,8 +26,8 @@ public class MainPage extends ChromeDriverSettings {
     private WebElement PRICE_FROM_TEXT_FIELD;
 
     public void openMainPage() {
-        driver.get("https://yandex.ru/");
-        System.out.println(driver.getCurrentUrl());
+        getDriver().get("https://yandex.ru/");
+        System.out.println(getDriver().getCurrentUrl());
     }
 
     public void clickMarket() {
