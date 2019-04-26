@@ -39,14 +39,41 @@ public class MyTest {
         //Сделать фильтрацию по телефонам марки Apple
         mainPage.clickAppleCheckbox();
         //Сделать фильтр по цене от 60 000 рублей
-        mainPage.selectTextField();
-        mainPage.textInput("60000");
+        mainPage.selectTextFieldFrom();
+        mainPage.textInputFrom("60000");
         Thread.sleep(3000);
         //Перейти по ссылке первого телефона в его описание
         String textOuter = mainPage.getAPPLE_NAME_OUTER().getAttribute("title");
         mainPage.clickFirstLink();
         String textInner = mainPage.getAPPLE_NAME_INNER().getText();
         //Сравнить отображаемое имя телефона
+        Assert.assertEquals(textOuter, textInner);
+        System.out.println(textOuter);
+        System.out.println(textInner);
+    }
+
+    @Test
+    public void yandexBeatsTest() throws InterruptedException {
+        MainPage mainPage = new MainPage(driver);
+        //Зайти на yandex.ru
+        mainPage.openMainPage();
+        //Перейти в маркет, подраздел электроника, наушники и Bluetooth-гарнитуры
+        mainPage.clickMarket();
+        mainPage.clickElektronika();
+        mainPage.clickNaushnikiIBluetoothGarnitury();
+        //Сделать фильтрацию по наушникам марки Beats
+        mainPage.clickBeatsCheckbox();
+        //Сделать фильтр по цене от 17000 до 25000 рублей
+        mainPage.selectTextFieldFrom();
+        mainPage.textInputFrom("17000");
+        mainPage.selectTextFieldTo();
+        mainPage.textInputTo("25000");
+        Thread.sleep(3000);
+        //Перейти по ссылке первых наушников в их описание
+        String textOuter = mainPage.getBEATS_NAME_OUTER().getAttribute("title");
+        mainPage.clickFirstLink();
+        String textInner = mainPage.getBEATS_NAME_INNER().getText();
+        //Сравнить отображаемое имя наушников
         Assert.assertEquals(textOuter, textInner);
         System.out.println(textOuter);
         System.out.println(textInner);
