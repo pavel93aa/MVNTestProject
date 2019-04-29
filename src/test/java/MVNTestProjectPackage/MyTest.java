@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 
 public class MyTest {
 
@@ -14,7 +15,9 @@ public class MyTest {
     @Before
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\Pavel\\IdeaProjects\\MVNTestProject\\chromedriver.exe");
+        //System.setProperty("webdriver.ie.driver", "C:\\Users\\Pavel\\IdeaProjects\\MVNTestProject\\IEDriverServer.exe");
         driver = new ChromeDriver();
+        //driver = new InternetExplorerDriver();
         driver.manage().window().maximize();
         System.out.println("Test setUp");
     }
@@ -47,9 +50,9 @@ public class MyTest {
         mainPage.clickFirstLink();
         String textInner = mainPage.getAPPLE_NAME_INNER().getText();
         //Сравнить отображаемое имя телефона
-        Assert.assertEquals(textOuter, textInner);
         System.out.println(textOuter);
         System.out.println(textInner);
+        Assert.assertEquals(textOuter, textInner);
     }
 
     @Test
@@ -74,8 +77,8 @@ public class MyTest {
         mainPage.clickFirstLink();
         String textInner = mainPage.getBEATS_NAME_INNER().getText();
         //Сравнить отображаемое имя наушников
-        Assert.assertEquals(textOuter, textInner);
         System.out.println(textOuter);
         System.out.println(textInner);
+        Assert.assertEquals(textOuter, textInner);
     }
 }
