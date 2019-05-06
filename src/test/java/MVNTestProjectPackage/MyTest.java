@@ -44,7 +44,7 @@ public class MyTest {
         //Сделать фильтр по цене от 60 000 рублей
         mainPage.selectTextFieldFrom();
         mainPage.textInputFrom("60000");
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         //Перейти по ссылке первого телефона в его описание
         String textOuter = mainPage.getAPPLE_NAME_OUTER().getAttribute("title");
         mainPage.clickFirstLink();
@@ -71,7 +71,7 @@ public class MyTest {
         mainPage.textInputFrom("17000");
         mainPage.selectTextFieldTo();
         mainPage.textInputTo("25000");
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         //Перейти по ссылке первых наушников в их описание
         String textOuter = mainPage.getBEATS_NAME_OUTER().getAttribute("title");
         mainPage.clickFirstLink();
