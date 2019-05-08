@@ -48,7 +48,7 @@ public class MyTest {
         //Перейти по ссылке первого телефона в его описание
         String textOuter = mainPage.getAPPLE_NAME_OUTER().getAttribute("title");
         mainPage.clickFirstLink();
-        String textInner = mainPage.getAPPLE_NAME_INNER().getText();
+        String textInner = mainPage.getNAME_INNER().getText();
         //Сравнить отображаемое имя телефона
         System.out.println(textOuter);
         System.out.println(textInner);
@@ -75,7 +75,7 @@ public class MyTest {
         //Перейти по ссылке первых наушников в их описание
         String textOuter = mainPage.getBEATS_NAME_OUTER().getAttribute("title");
         mainPage.clickFirstLink();
-        String textInner = mainPage.getBEATS_NAME_INNER().getText();
+        String textInner = mainPage.getNAME_INNER().getText();
         //Сравнить отображаемое имя наушников
         System.out.println(textOuter);
         System.out.println(textInner);

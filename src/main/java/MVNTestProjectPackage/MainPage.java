@@ -37,32 +37,25 @@ public class MainPage extends BasePageFactory {
     @FindBy(xpath = "/html/body/div[1]/div[5]/div[2]/div[1]/div[1]/div/div[1]/div[1]/div[3]/div[2]/a")
     private WebElement FIRST_LINK;
 
-    @FindBy(xpath = "//div[contains(@data-id, 'model-1732181846')]/a")
+    @FindBy(xpath = "//div[contains(@data-id, 'model-175941311')]/a")
     private WebElement APPLE_NAME_OUTER;
-
-    @FindBy(xpath = "//*[contains(@class, 'title title_size_28 title_bold_yes')]")
-    private WebElement APPLE_NAME_INNER;
 
     @FindBy(xpath = "//div[contains(@data-id, 'model-1803351256')]/a")
     private WebElement BEATS_NAME_OUTER;
 
     @FindBy(xpath = "//*[contains(@class, 'title title_size_28 title_bold_yes')]")
-    private WebElement BEATS_NAME_INNER;
+    private WebElement NAME_INNER;
 
     public WebElement getAPPLE_NAME_OUTER() {
         return APPLE_NAME_OUTER;
-    }
-
-    public WebElement getAPPLE_NAME_INNER() {
-        return APPLE_NAME_INNER;
     }
 
     public WebElement getBEATS_NAME_OUTER() {
         return BEATS_NAME_OUTER;
     }
 
-    public WebElement getBEATS_NAME_INNER() {
-        return BEATS_NAME_INNER;
+    public WebElement getNAME_INNER() {
+        return NAME_INNER;
     }
 
     public void openMainPage() {
