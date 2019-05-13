@@ -37,7 +37,7 @@ public class MainPage extends BasePageFactory {
     @FindBy(xpath = "/html/body/div[1]/div[5]/div[2]/div[1]/div[1]/div/div[1]/div[1]/div[3]/div[2]/a")
     private WebElement FIRST_LINK;
 
-    @FindBy(xpath = "//div[contains(@data-id, 'model-175941311')]/a")
+    @FindBy(xpath = "//div[contains(@data-id, 'model-1732181846')]/a")
     private WebElement APPLE_NAME_OUTER;
 
     @FindBy(xpath = "//div[contains(@data-id, 'model-1803351256')]/a")
