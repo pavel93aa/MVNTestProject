@@ -1,3 +1,5 @@
+/*Класс MyTest содержит тесты, предусловия и постусловия*/
+
 package MVNTestProjectPackage;
 
 import org.junit.After;
@@ -5,28 +7,24 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
 
 public class MyTest {
 
     private WebDriver driver;
+    private DriverManager driverManager;
 
     @Before
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Pavel\\IdeaProjects\\MVNTestProject\\chromedriver.exe");
-        //System.setProperty("webdriver.ie.driver", "C:\\Users\\Pavel\\IdeaProjects\\MVNTestProject\\IEDriverServer.exe");
-        driver = new ChromeDriver();
-        //driver = new InternetExplorerDriver();
-        driver.manage().window().maximize();
         System.out.println("Test setUp");
+        driverManager = DriverManagerFactory.getDriverManager(DriverType.CHROME);
+        driver = driverManager.getWebDriver();
     }
 
     @After
     public void cleanUp() {
+        System.out.println("Test cleanUp");
         if (driver != null) {
             driver.quit();
-            System.out.println("Test cleanUp");
         }
     }
 

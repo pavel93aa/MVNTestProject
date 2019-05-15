@@ -1,3 +1,5 @@
+/*Класс BasePageFactory содержит конструкцию PageFactory.initElements(driver, this), которая необходима для работы PageFactory*/
+
 package MVNTestProjectPackage;
 
 import org.openqa.selenium.WebDriver;

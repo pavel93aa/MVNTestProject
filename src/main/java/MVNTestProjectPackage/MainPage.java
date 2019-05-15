@@ -1,3 +1,5 @@
+/*Класс MainPage содержит web-элементы с локаторами и методы для взаимодействия с web-элементами*/
+
 package MVNTestProjectPackage;
 
 import org.openqa.selenium.WebDriver;
